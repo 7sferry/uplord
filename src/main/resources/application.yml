@@ -1,0 +1,48 @@
+server:
+  port: 8787
+  error:
+    whitelabel:
+      enabled: false
+
+app:
+  upload-path: '/ferry/upload/'
+  category:
+    videos:
+      - mkv
+      - mp4
+      - avi
+    compressed:
+      - zip
+      - rar
+      - 7z
+    music:
+      - mp3
+      - wav
+    application:
+      - exe
+      - rpm
+      - msi
+    documents:
+      - pdf
+      - xls
+      - xlsx
+      - csv
+      - doc
+      - docx
+      - ppt
+      - pptx
+    pictures:
+      - jpg
+      - jpeg
+      - png
+      - gif
+      - webp
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+  servlet:
+    multipart:
+      max-request-size: 10GB
+      max-file-size: 10GB
