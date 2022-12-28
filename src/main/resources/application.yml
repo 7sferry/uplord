@@ -5,7 +5,7 @@ server:
       enabled: false
 
 app:
-  upload-path: '/ferry/upload/'
+  upload-path: '/home/upload'
   category:
     videos:
       - mkv
