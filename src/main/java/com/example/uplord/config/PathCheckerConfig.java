@@ -18,7 +18,7 @@ import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
-public class CheckinConfig{
+public class PathCheckerConfig{
 	private final UplordConfig uplordConfig;
 
 	@PostConstruct

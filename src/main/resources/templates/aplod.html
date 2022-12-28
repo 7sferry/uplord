@@ -19,7 +19,7 @@
 		<label for="ask">Always ask</label>
 		<input type="radio" name="actions" value="overwrite" id="overwrite"/>
 		<label for="overwrite">Overwrite it</label>
-		<input type="radio"  name="actions" value="keep" id="keep"/>
+		<input type="radio" name="actions" value="keep" id="keep"/>
 		<label for="keep">Keep all files</label>
 		<input type="radio" name="actions" value="skip" id="skip"/>
 		<label for="skip">Skip it</label>
@@ -33,30 +33,30 @@
 		<source th:src="@{/assets/audio/warning.mp3}" src="">
 	</audio>
 	<form id="upload-form" enctype="multipart/form-data" method="post">
-  <span class="drag-box">
-  <input type="file" name="files" id="files" onchange="uploadFile()" multiple>
-  Click or Drag and Drop File(s) here
-  </span>
+		<span class="drag-box">
+			<input type="file" name="files" id="files" onchange="uploadFile()" multiple>
+			Click or Drag and Drop File(s) here
+		</span>
 		<button class="abort" id="button" onclick="abortOrClear(event)">Clear</button>
 		<progress id="progress-bar" value="0" max="100"></progress>
 		<h3 id="upload-status"></h3>
 		<p id="loaded-total"></p>
 	</form>
 	<main class="st-viewport" data-table_id="0">
-			<header class="st-table-header">
-				<h2 id="total"></h2>
-				<div class="st-row">
-					<div class="st-column file-name">File</div>
-					<div class="st-column status">Status</div>
-				</div>
-			</header>
-			<div class="st_table"></div>
+		<header class="st-table-header">
+			<h2 id="total"></h2>
+			<div class="st-row">
+				<div class="st-column file-name">File</div>
+				<div class="st-column status">Status</div>
+			</div>
+		</header>
+		<div class="st_table"></div>
 	</main>
 </div>
 
 <script th:inline="javascript">
 	let path = /*[[@{/}]]*/ '';
-	path = path.substring(0,path.length-1);
+	path = path.substring(0, path.length - 1);
 
 	function _(el){
 		return el.charAt(0) !== '#' ? document.querySelectorAll(el) : document.querySelector(el);

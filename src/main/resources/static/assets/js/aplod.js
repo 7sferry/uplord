@@ -86,31 +86,37 @@ function traverseFileTree(item, path) {
         });
     } else if (item.isDirectory) {
         // Get folder contents
-        var dirReader = item.createReader();
+        let dirReader = item.createReader();
         dirReader.readEntries(function(entries) {
-            for (var i=0; i<entries.length; i++) {
+            for (let i=0; i<entries.length; i++) {
                 traverseFileTree(entries[i], path + item.name + "/");
             }
         });
     }
 }
 
+function traverseItems(items){
+    for(let i = 0; i < items.length; i++){
+        let item = items[i].webkitGetAsEntry();
+        if(item){
+            traverseFileTree(item);
+        }
+    }
+}
+
+function constructObject(){
+    return PrimaryObject.Builder
+            .withDuplicateActionsField("[name=actions]")
+            .withFilesField("#files")
+            .build();
+}
+
 function uploadFile(event = null){
     if(event !== null){
-        var items = event.dataTransfer.items;
-        for(var i = 0; i < items.length; i++){
-            // webkitGetAsEntry is where the magic happens
-            var item = items[i].webkitGetAsEntry();
-            if(item){
-                traverseFileTree(item);
-            }
-        }
+        traverseItems(event.dataTransfer.items);
         return;
     }
-    const obj = PrimaryObject.Builder
-        .withDuplicateActionsField("[name=actions]")
-        .withFilesField("#files")
-        .build();
+    const obj = constructObject();
     _("#button").innerHTML = "Abort";
     clearHistory();
     toggleButtons(obj, true);
