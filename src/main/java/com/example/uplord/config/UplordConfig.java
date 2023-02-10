@@ -8,14 +8,12 @@ package com.example.uplord.config;
 import com.example.uplord.utils.UplordUtils;
 import lombok.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
 
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
 
 @Value
-@ConstructorBinding
 @ConfigurationProperties("app")
 public class UplordConfig{
 	Map<String, Set<String>> category;
