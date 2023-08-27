@@ -5,7 +5,7 @@ server:
       enabled: false
 
 app:
-  upload-path: '/home/upload/'
+  upload-path: '/usr/share/uplord'
   category:
     videos:
       - mkv
