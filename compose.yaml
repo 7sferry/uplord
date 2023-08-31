@@ -1,0 +1,16 @@
+version: '0.1'
+services:
+  uplord-service:
+    container_name: uplord
+    image: uplord:latest
+    ports:
+      - 8787:8787
+    volumes:
+      - /ferry:/usr/share/uplord
+  downlord-service:
+    container_name: downlord
+    image: downlord:latest
+    ports:
+      - 8765:8765
+    volumes:
+      - /ferry:/usr/share/downlord
