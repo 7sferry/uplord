@@ -1,6 +1,8 @@
 version: '0.1'
 services:
   uplord-service:
+    build:
+      context: .
     container_name: uplord
     image: uplord:latest
     ports:
